@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>InfoGames</title>
+    <link rel="stylesheet" href="ConsolaDiseño.css">
+    <style>
+        .product-card img {
+            width: 200px; /* Ajustar el tamaño de las imágenes */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Menú de navegación -->
+    <div class="top-nav">
+        <button onclick="scrollToSection('consolas')">Consolas</button>
+        <button onclick="scrollToSection('juegos')">Juegos</button>
+        <button onclick="scrollToSection('controles')">Controles</button>
+        <button onclick="logout()">Cerrar sesión</button>
+    </div>
+
+    <!-- Página de autenticación -->
+    <div id="auth-page">
+        <div id="login-form">
+            <h2>Iniciar sesión</h2>
+            <input type="text" id="login-username" placeholder="Nombre de usuario">
+            <input type="password" id="login-password" placeholder="Contraseña">
+            <button onclick="login()">Iniciar sesión</button>
+            <button onclick="showRegister()">Registrarse</button>
+        </div>
+
+        <div id="register-form" style="display: none;">
+            <h2>Registrarse</h2>
+            <input type="text" id="register-username" placeholder="Nombre de usuario">
+            <input type="email" id="register-email" placeholder="Correo electrónico">
+            <input type="password" id="register-password" placeholder="Contraseña">
+            <button onclick="register()">Registrarse</button>
+            <button onclick="showLogin()">Iniciar sesión</button>
+        </div>
+    </div>
+
+    <!-- Página principal -->
+    <div id="main-page" style="display: none;">
+        <!-- Sección Consolas -->
+        <div id="consolas" class="product-section">
+            <h2>Consolas</h2>
+            <button onclick="toggleSection('consolas-content')">Mostrar Consolas</button>
+            <div id="consolas-content" class="product-content">
+                <!-- Productos Consolas -->
+                <div class="product-card">
+                    <img src="https://www.copetti.org/images/consoles/gameboy/international.073b2e0822d4b12492c46995f658e11eec17f424ce7f483b331c6f1294082246.png" alt="Game Boy">
+                    <div>
+                        <h3>Game Boy</h3>
+                        <p>Precio: Q450.00</p>
+                        <button class="description-btn" onclick="toggleDescription('gameboy-description')">Ver Descripción</button>
+                        <p id="gameboy-description" class="description" style="display: none;">Descripción: La Game Boy es una consola portátil lanzada por Nintendo en 1989. Fue una de las primeras consolas portátiles con gran éxito comercial.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/NES-Console-Set.png/800px-NES-Console-Set.png" alt="Nintendo NES">
+                    <div>
+                        <h3>Nintendo NES</h3>
+                        <p>Precio: Q550.00</p>
+                        <button class="description-btn" onclick="toggleDescription('nes-description')">Ver Descripción</button>
+                        <p id="nes-description" class="description" style="display: none;">Descripción: La Nintendo NES, lanzada en 1983, es una de las consolas más icónicas de la era de los 8 bits, conocida por su biblioteca de juegos influyentes.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://static.wikia.nocookie.net/espokemon/images/7/7c/GameCube.png/revision/latest?cb=20110225233233" alt="Gamecube">
+                    <div>
+                        <h3>Gamecube</h3>
+                        <p>Precio: Q650.00</p>
+                        <button class="description-btn" onclick="toggleDescription('gamecube-description')">Ver Descripción</button>
+                        <p id="gamecube-description" class="description" style="display: none;">Descripción: La Gamecube, lanzada en 2001, es conocida por su diseño compacto y una excelente biblioteca de juegos exclusivos.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Wii_console.png" alt="Wii">
+                    <div>
+                        <h3>Wii</h3>
+                        <p>Precio: Q700.00</p>
+                        <button class="description-btn" onclick="toggleDescription('wii-description')">Ver Descripción</button>
+                        <p id="wii-description" class="description" style="display: none;">Descripción: La Wii, lanzada en 2006, revolucionó el juego con sus controles de movimiento y su amplia gama de juegos accesibles para todos.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.nintendo.com/ph/switch/index/img/switch_img.png" alt="Nintendo Switch">
+                    <div>
+                        <h3>Nintendo Switch</h3>
+                        <p>Precio: Q2,500.00</p>
+                        <button class="description-btn" onclick="toggleDescription('switch-description')">Ver Descripción</button>
+                        <p id="switch-description" class="description" style="display: none;">Descripción: La Nintendo Switch, lanzada en 2017, es una consola híbrida que combina el juego en casa y portátil, conocida por su innovador diseño y juegos populares.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://teknoscene.com/wp-content/uploads/2021/09/Xbox.png" alt="Xbox Clasica">
+                    <div>
+                        <h3>Xbox Clásica</h3>
+                        <p>Precio: Q800.00</p>
+                        <button class="description-btn" onclick="toggleDescription('xbox-classic-description')">Ver Descripción</button>
+                        <p id="xbox-classic-description" class="description" style="display: none;">Descripción: La Xbox Clásica, lanzada en 2001, fue la primera consola de Microsoft y marcó el inicio de la competencia en el mercado de consolas de videojuegos.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://assets.xboxservices.com/assets/bc/40/bc40fdf3-85a6-4c36-af92-dca2d36fc7e5.png?n=642227_Hero-Gallery-0_A1_857x676.png" alt="Xbox Serie X">
+                    <div>
+                        <h3>Xbox Serie X</h3>
+                        <p>Precio: Q4,500.00</p>
+                        <button class="description-btn" onclick="toggleDescription('xbox-series-description')">Ver Descripción</button>
+                        <p id="xbox-series-description" class="description" style="display: none;">Descripción: La Xbox Serie X, lanzada en 2020, es la consola más potente de Microsoft, ofreciendo gráficos 4K y tiempos de carga ultrarrápidos.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/PSX-Console-wController.png/1200px-PSX-Console-wController.png" alt="Playstation 1">
+                    <div>
+                        <h3>Playstation 1</h3>
+                        <p>Precio: Q600.00</p>
+                        <button class="description-btn" onclick="toggleDescription('ps1-description')">Ver Descripción</button>
+                        <p id="ps1-description" class="description" style="display: none;">Descripción: La Playstation 1, lanzada en 1994, fue una de las primeras consolas en utilizar CD-ROMs, estableciendo a Sony en el mercado de consolas.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.wikiraider.com/images/c/c9/Playstation2.png" alt="Playstation 2">
+                    <div>
+                        <h3>Playstation 2</h3>
+                        <p>Precio: Q700.00</p>
+                        <button class="description-btn" onclick="toggleDescription('ps2-description')">Ver Descripción</button>
+                        <p id="ps2-description" class="description" style="display: none;">Descripción: La Playstation 2, lanzada en 2000, es una de las consolas más vendidas de todos los tiempos, famosa por su extensa biblioteca de juegos.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://gmedia.playstation.com/is/image/SIEPDC/ps5-product-thumbnail-01-en-14sep21?$facebook$" alt="Playstation 5">
+                    <div>
+                        <h3>Playstation 5</h3>
+                        <p>Precio: Q6,000.00</p>
+                        <button class="description-btn" onclick="toggleDescription('ps5-description')">Ver Descripción</button>
+                        <p id="ps5-description" class="description" style="display: none;">Descripción: La Playstation 5, lanzada en 2020, ofrece gráficos 4K de alta calidad, una velocidad de carga rápida y un mando innovador con retroalimentación háptica.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Juegos -->
+        <div id="juegos" class="product-section">
+            <h2>Juegos</h2>
+            <button onclick="toggleSection('juegos-content')">Mostrar Juegos</button>
+            <div id="juegos-content" class="product-content">
+                <!-- Productos Juegos -->
+                <div class="product-card">
+                    <img src="https://b2645180.smushcdn.com/2645180/wp-content/uploads/2022/07/Tetris-DX-for-Nintendo-Game-Boy-Color-CARTRIDGE-ONLY-USED-Video-Game.png?lossy=1&strip=1&webp=1" alt="Tetris">
+                    <div>
+                        <h3>Tetris</h3>
+                        <p>Precio: Q78.00</p>
+                        <button class="description-btn" onclick="toggleDescription('tetris-description')">Ver Descripción</button>
+                        <p id="tetris-description" class="description" style="display: none;">Descripción: Tetris es un videojuego de rompecabezas desarrollado por Alexey Pajitnov. Fue lanzado por primera vez en 1984.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.nedgame.nl/gameboy/super-mario-land--losse-cassette-.7756921400.cover.jpg?1675076028" alt="Super Mario Land">
+                    <div>
+                        <h3>Super Mario Land</h3>
+                        <p>Precio: Q195.00</p>
+                        <button class="description-btn" onclick="toggleDescription('super-mario-land-description')">Ver Descripción</button>
+                        <p id="super-mario-land-description" class="description" style="display: none;">Descripción: Super Mario Land es un juego de plataformas lanzado para la Game Boy en 1989, que presenta al famoso fontanero en una nueva aventura en un mundo lleno de enemigos y desafíos.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/video-games/pokemon_yellow/yellow_boxart.png" alt="Pokémon Yellow">
+                    <div>
+                        <h3>Pokémon Yellow</h3>
+                        <p>Precio: Q273.00</p>
+                        <button class="description-btn" onclick="toggleDescription('pokemon-yellow-description')">Ver Descripción</button>
+                        <p id="pokemon-yellow-description" class="description" style="display: none;">Descripción: Pokémon Yellow es un juego de rol basado en el popular anime, lanzado para la Game Boy. El jugador comienza con Pikachu como su compañero.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://i.pinimg.com/736x/1f/ed/ae/1fedae3cd6655a3abc49252cc2a2cf9b.jpg" alt="Super Mario Bros">
+                    <div>
+                        <h3>Super Mario Bros</h3>
+                        <p>Precio: Q117.00</p>
+                        <button class="description-btn" onclick="toggleDescription('super-mario-bros-description')">Ver Descripción</button>
+                        <p id="super-mario-bros-description" class="description" style="display: none;">Descripción: Super Mario Bros es uno de los videojuegos más icónicos de todos los tiempos, lanzado para la NES en 1985. Ayuda a Mario a rescatar a la Princesa Peach del malvado Bowser.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://i.ebayimg.com/images/g/I24AAOSwfadguTFy/s-l640.jpg" alt="Duck Hunt">
+                    <div>
+                        <h3>Duck Hunt</h3>
+                        <p>Precio: Q156.00</p>
+                        <button class="description-btn" onclick="toggleDescription('duck-hunt-description')">Ver Descripción</button>
+                        <p id="duck-hunt-description" class="description" style="display: none;">Descripción: Duck Hunt es un videojuego de disparos lanzado para la NES, donde el jugador utiliza una pistola de luz para disparar a los patos que aparecen en la pantalla.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://i.ebayimg.com/images/g/USkAAOSwqy1jya3a/s-l1600.jpg" alt="The Legend of Zelda">
+                    <div>
+                        <h3>The Legend of Zelda</h3>
+                        <p>Precio: Q234.00</p>
+                        <button class="description-btn" onclick="toggleDescription('legend-of-zelda-description')">Ver Descripción</button>
+                        <p id="legend-of-zelda-description" class="description" style="display: none;">Descripción: The Legend of Zelda es un juego de acción y aventura lanzado en 1986 para la NES. El jugador controla a Link en su misión para rescatar a la Princesa Zelda y derrotar a Ganon.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_671321-MCO53325879763_012023-O.webp" alt="Super Smash Bros. Melee">
+                    <div>
+                        <h3>Super Smash Bros. Melee</h3>
+                        <p>Precio: Q390.00</p>
+                        <button class="description-btn" onclick="toggleDescription('smash-bros-melee-description')">Ver Descripción</button>
+                        <p id="smash-bros-melee-description" class="description" style="display: none;">Descripción: Super Smash Bros. Melee es un juego de lucha lanzado para el GameCube en 2001, conocido por su dinámica de juego rápida y su variada selección de personajes.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://www.todoconsolas.com/50515-home_default/mario_kart_double_dash_gc_sp_po1953.jpg" alt="Mario Kart: Double Dash!!">
+                    <div>
+                        <h3>Mario Kart: Double Dash!!</h3>
+                        <p>Precio: Q312.00</p>
+                        <button class="description-btn" onclick="toggleDescription('mario-kart-double-dash-description')">Ver Descripción</button>
+                        <p id="mario-kart-double-dash-description" class="description" style="display: none;">Descripción: Mario Kart: Double Dash!! es un juego de carreras lanzado para el GameCube en 2003. Ofrece una experiencia de carreras única con dos personajes por kart.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://i.ebayimg.com/thumbs/images/g/HdIAAOSwDX9kiWF2/s-l640.jpg" alt="Super Mario Sunshine">
+                    <div>
+                        <h3>Super Mario Sunshine</h3>
+                        <p>Precio: Q273.00</p>
+                        <button class="description-btn" onclick="toggleDescription('super-mario-sunshine-description')">Ver Descripción</button>
+                        <p id="super-mario-sunshine-description" class="description" style="display: none;">Descripción: Super Mario Sunshine es un juego de plataformas lanzado para el GameCube en 2002. Mario debe limpiar la isla Delfino de la pintura y deshacer el malvado plan de Bowser.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://products.eneba.games/resized-products/hnngQowjx67VRGhAtUgXBurI0s4jlCf2KkQDSgzYrG8_350x200_1x-0.png" alt="Mario Kart Wii">
+                    <div>
+                        <h3>Mario Kart Wii</h3>
+                        <p>Precio: Q234.00</p>
+                        <button class="description-btn" onclick="toggleDescription('mario-kart-wii-description')">Ver Descripción</button>
+                        <p id="mario-kart-wii-description" class="description" style="display: none;">Descripción: Mario Kart Wii es un juego de carreras lanzado para la Wii en 2008. Introduce el uso de los controles de movimiento y una amplia gama de pistas y personajes.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://www.max.com.gt/media/catalog/product/cache/40cff66e483d5074b1ae49efef994171/s/w/switchmk8.png" alt="Mario Kart 8 Deluxe">
+                    <div>
+                        <h3>Mario Kart 8 Deluxe</h3>
+                        <p>Precio: Q390.00</p>
+                        <button class="description-btn" onclick="toggleDescription('mario-kart-8-deluxe-description')">Ver Descripción</button>
+                        <p id="mario-kart-8-deluxe-description" class="description" style="display: none;">Descripción: Mario Kart 8 Deluxe es la versión mejorada del juego original para la Switch, con gráficos mejorados, nuevas pistas y todos los DLCs incluidos.</p>
+                        <button>Comprar</button>
+                    </div>
+                </div>
+        
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/81aJ-R4E6gL.jpg" alt="Super Smash Bros. Ultimate">
+                    <div>
+                        <h3>Super Smash Bros. Ultimate</h3>
+                        <p>Precio: Q468.00</p>
+                        <button class="description-btn" onclick="toggleDescription('smash-bros-ultimate-description')">Ver Descripción</button>
+                        <p id="smash-bros-ultimate-description" class="description" style="display: none;">Descripción: Super Smash Bros. Ultimate es un juego de lucha para la Switch que incluye todos los personajes de la serie y una amplia gama de escenarios y modos de juego.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- Sección Controles -->
+         <div id="controles" class="product-section">
+            <h2>Controles</h2>
+            <button onclick="toggleSection('controles-content')">Mostrar Controles</button>
+            <div id="controles-content" class="product-content">
+                <!-- Productos Controles -->
+                <div class="product-card">
+                    <img src="https://images-cdn.ubuy.co.in/65537c2f441e3c062525cf96-nintendo-official-nes-classic-controller.jpg" alt="NES Controller">
+                    <div>
+                        <h3>NES Controller</h3>
+                        <p>Precio: Q234.00</p>
+                        <button class="description-btn" onclick="toggleDescription('nes-description')">Ver Descripción</button>
+                        <p id="nes-description" class="description" style="display: none;">Descripción: El clásico control de la NES es icónico por su diseño y jugabilidad sencilla, ideal para juegos retro.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/GameCube_controller.png" alt="GameCube Controller">
+                    <div>
+                        <h3>GameCube Controller</h3>
+                        <p>Precio: Q468.00</p>
+                        <button class="description-btn" onclick="toggleDescription('gamecube-description')">Ver Descripción</button>
+                        <p id="gamecube-description" class="description" style="display: none;">Descripción: El GameCube Controller es famoso por su ergonomía y su durabilidad, excelente para juegos de lucha.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://i5.walmartimages.com/seo/Wii-remote-with-nunchuck_215af23e-a366-4b7a-bccf-429534c5272b.6bbf945f7bc72a822ed35f4f2aec1320.jpeg" alt="Wii Remote (WiiMote) y Nunchuk">
+                    <div>
+                        <h3>Wii Remote (WiiMote) y Nunchuk</h3>
+                        <p>Precio: Q156.00</p>
+                        <button class="description-btn" onclick="toggleDescription('wii-description')">Ver Descripción</button>
+                        <p id="wii-description" class="description" style="display: none;">Descripción: El Wii Remote y Nunchuk ofrecen una experiencia de juego única, permitiendo movimientos precisos y diversión interactiva.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://cdn.kemik.gt/2023/12/4549659013-SONY-1200x1200-01.-500x500.jpg" alt="Joy-Con">
+                    <div>
+                        <h3>Joy-Con</h3>
+                        <p>Precio: Q624.00</p>
+                        <button class="description-btn" onclick="toggleDescription('joycon-description')">Ver Descripción</button>
+                        <p id="joycon-description" class="description" style="display: none;">Descripción: Los Joy-Con de Nintendo Switch ofrecen versatilidad con su uso en modos individuales o combinados, perfectos para multijugador.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Xbox-Duke-Controller.jpg" alt="Duke Controller">
+                    <div>
+                        <h3>Duke Controller (original)</h3>
+                        <p>Precio: Q234.00</p>
+                        <button class="description-btn" onclick="toggleDescription('duke-description')">Ver Descripción</button>
+                        <p id="duke-description" class="description" style="display: none;">Descripción: El Duke Controller de Xbox es recordado por su gran tamaño y robustez, seguido por el S Controller, una versión más compacta.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://m.media-amazon.com/images/I/61YNiiJizXL._SL1500_.jpg" alt="Xbox Wireless Controller">
+                    <div>
+                        <h3>Xbox Wireless Controller (Series X|S)</h3>
+                        <p>Precio: Q468.00</p>
+                        <button class="description-btn" onclick="toggleDescription('xbox-description')">Ver Descripción</button>
+                        <p id="xbox-description" class="description" style="display: none;">Descripción: El controlador inalámbrico de Xbox Series X|S ofrece precisión y comodidad, compatible con Xbox y PC.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://i.ebayimg.com/images/g/0YUAAOSw8HxiuGpN/s-l1600.jpg" alt="DualShock1 Controller">
+                    <div>
+                        <h3>DualShock1 Controller</h3>
+                        <p>Precio: Q156.00</p>
+                        <button class="description-btn" onclick="toggleDescription('dualshock1-description')">Ver Descripción</button>
+                        <p id="dualshock1-description" class="description" style="display: none;">Descripción: El DualShock 1, primer controlador con vibración de Sony, mejora la experiencia de juego con respuesta táctil en los juegos de PlayStation.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://images-na.ssl-images-amazon.com/images/I/412Q3RFHZVL._SX600_.jpg" alt="DualShock 2">
+                    <div>
+                        <h3>DualShock 2</h3>
+                        <p>Precio: Q156.00</p>
+                        <button class="description-btn" onclick="toggleDescription('dualshock2-description')">Ver Descripción</button>
+                        <p id="dualshock2-description" class="description" style="display: none;">Descripción: El DualShock 2 mejora el diseño original, con una sensibilidad aumentada y vibración mejorada, compatible con PlayStation 2.</p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://media.direct.playstation.com/is/image/sierialto/dualsense-edge-ps5-controller-front" alt="Dual Sense">
+                    <div>
+                        <h3>DualSense</h3>
+                        <p>Precio: Q546.00</p>
+                        <button class="description-btn" onclick="toggleDescription('dualsense-description')">Ver Descripción</button>
+                        <p id="dualsense-description" class="description" style="display: none;">Descripción: El DualSense de PS5 ofrece tecnología háptica avanzada, brindando una experiencia de juego inmersiva con gatillos adaptativos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+               
+
+
+    <script src="ConsolaEstructura.js"></script>
+</body>
+</html>
